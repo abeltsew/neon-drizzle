@@ -15,6 +15,7 @@
     "dotenv": "^16.3.1",
     "drizzle-orm": "^0.28.6",
     "next": "latest",
+    "pg": "^8.11.3",
     "react": "latest",
     "react-dom": "latest"
   },
