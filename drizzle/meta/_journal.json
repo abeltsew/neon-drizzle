@@ -8,6 +8,13 @@
       "when": 1695754362443,
       "tag": "0000_lame_nighthawk",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1695807393785,
+      "tag": "0001_fixed_vulture",
+      "breakpoints": true
     }
   ]
 }
