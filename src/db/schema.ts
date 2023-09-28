@@ -28,3 +28,11 @@ export const comments = pgTable('comments', {
     .notNull()
     .references(() => posts.id),
 });
+
+export const likes = pgTable('likes', {
+  id: serial('id').primaryKey(),
+  postId: integer('post_id')
+    .notNull()
+    .references(() => posts.id),
+  userId: integer('user_id').references(() => users.id),
+});
