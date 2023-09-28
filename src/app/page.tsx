@@ -1,5 +1,8 @@
 'use client';
+import { ModeToggle } from '@/components/ui/MoodToogle';
 import { Button } from '@/components/ui/button';
+import { Calendar } from '@/components/ui/calendar';
+import { Calculator } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 function Profile() {
@@ -20,7 +23,9 @@ function Profile() {
 
   return (
     <div className="p-4">
+      <ModeToggle />
       <Button>Click me</Button>
+      <Calendar />
       <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
   );
