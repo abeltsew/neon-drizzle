@@ -36,3 +36,13 @@ export const likes = pgTable('likes', {
     .references(() => posts.id),
   userId: integer('user_id').references(() => users.id),
 });
+
+export const products = pgTable('products', {
+  id: serial('id').primaryKey(),
+  name: varchar('name', { length: 255 }).notNull(),
+  price: integer('price').notNull(),
+  description: varchar('description', { length: 255 }).notNull(),
+  image: varchar('image', { length: 255 }).notNull(),
+  createdAt: varchar('created_at', { length: 255 }).notNull(),
+  updatedAt: varchar('updated_at', { length: 255 }).notNull(),
+});
