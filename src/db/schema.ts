@@ -28,6 +28,7 @@ export const comments = pgTable('comments', {
     .notNull()
     .references(() => posts.id),
   createdAt: varchar('created_at', { length: 255 }).notNull(),
+  updatedAt: varchar('updated_at', { length: 255 }).notNull(),
 });
 
 export const likes = pgTable('likes', {
