@@ -15,6 +15,8 @@ export const posts = pgTable('posts', {
   id: serial('id').primaryKey(),
   title: varchar('title', { length: 255 }).notNull(),
   body: varchar('content', { length: 255 }).notNull(),
+  createdAt: varchar('created_at', { length: 255 }).notNull(),
+  updatedAt: varchar('updated_at', { length: 255 }).notNull(),
 });
 
 // Post has many comments association in drizzle
