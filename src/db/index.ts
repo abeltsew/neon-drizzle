@@ -9,9 +9,6 @@
 // const sql = neon(process.env.DATABASE_URL!);
 
 // export const db = drizzle(sql);
-
-import { pgTable, serial, text, varchar } from 'drizzle-orm/pg-core';
-import { drizzle } from 'drizzle-orm/node-postgres';
 import { Client } from 'pg';
 
 export const client = new Client({
