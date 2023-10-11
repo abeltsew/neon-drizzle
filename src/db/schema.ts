@@ -50,3 +50,25 @@ export const products = pgTable('products', {
   createdAt: varchar('created_at', { length: 255 }).notNull(),
   updatedAt: varchar('updated_at', { length: 255 }).notNull(),
 });
+
+export const orders = pgTable('orders', {
+  id: serial('id').primaryKey(),
+  userId: integer('user_id')
+    .notNull()
+    .references(() => users.id),
+  createdAt: varchar('created_at', { length: 255 }).notNull(),
+  updatedAt: varchar('updated_at', { length: 255 }).notNull(),
+});
+
+export const orderItems = pgTable('order_items', {
+  id: serial('id').primaryKey(),
+  orderId: integer('order_id')
+    .notNull()
+    .references(() => orders.id),
+  productId: integer('product_id')
+    .notNull()
+    .references(() => products.id),
+  quantity: integer('quantity').notNull(),
+  createdAt: varchar('created_at', { length: 255 }).notNull(),
+  updatedAt: varchar('updated_at', { length: 255 }).notNull(),
+});
