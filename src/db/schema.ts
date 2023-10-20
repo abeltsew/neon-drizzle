@@ -72,3 +72,16 @@ export const orderItems = pgTable('order_items', {
   createdAt: varchar('created_at', { length: 255 }).notNull(),
   updatedAt: varchar('updated_at', { length: 255 }).notNull(),
 });
+
+export const carts = pgTable('carts', {
+  id: serial('id').primaryKey(),
+  userId: integer('user_id')
+    .notNull()
+    .references(() => users.id),
+  productId: integer('product_id')
+    .notNull()
+    .references(() => products.id),
+  quantity: integer('quantity').notNull(),
+  createdAt: varchar('created_at', { length: 255 }).notNull(),
+  updatedAt: varchar('updated_at', { length: 255 }).notNull(),
+});
