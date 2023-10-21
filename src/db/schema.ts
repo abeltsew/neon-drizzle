@@ -109,3 +109,16 @@ export const chats = pgTable('chats', {
   createdAt: varchar('created_at', { length: 255 }).notNull(),
   updatedAt: varchar('updated_at', { length: 255 }).notNull(),
 });
+
+export const chatMessages = pgTable('chat_messages', {
+  id: serial('id').primaryKey(),
+  chatId: integer('chat_id')
+    .notNull()
+    .references(() => chats.id),
+  userId: integer('user_id')
+    .notNull()
+    .references(() => users.id),
+  message: varchar('message', { length: 255 }).notNull(),
+  createdAt: varchar('created_at', { length: 255 }).notNull(),
+  updatedAt: varchar('updated_at', { length: 255 }).notNull(),
+});
