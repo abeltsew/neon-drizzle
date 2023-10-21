@@ -98,3 +98,14 @@ export const cartItems = pgTable('cart_items', {
   createdAt: varchar('created_at', { length: 255 }).notNull(),
   updatedAt: varchar('updated_at', { length: 255 }).notNull(),
 });
+
+// Add Chat model
+export const chats = pgTable('chats', {
+  id: serial('id').primaryKey(),
+  userId: integer('user_id')
+    .notNull()
+    .references(() => users.id),
+  message: varchar('message', { length: 255 }).notNull(),
+  createdAt: varchar('created_at', { length: 255 }).notNull(),
+  updatedAt: varchar('updated_at', { length: 255 }).notNull(),
+});
