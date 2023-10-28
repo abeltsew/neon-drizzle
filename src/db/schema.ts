@@ -136,13 +136,12 @@ export const profiles = pgTable('profiles', {
   createdAt: varchar('created_at', { length: 255 }).notNull(),
   updatedAt: varchar('updated_at', { length: 255 }).notNull(),
 });
-
-export const userFollowers = pgTable('user_followers', {
+// Add clients model
+export const clients = pgTable('clients', {
   id: serial('id').primaryKey(),
-  userId: integer('user_id')
-    .notNull()
-    .references(() => users.id),
-  followerId: integer('follower_id')
-    .notNull()
-    .references(() => users.id),
+  name: varchar('name', { length: 255 }).notNull(),
+  clientId: varchar('client_id', { length: 255 }).notNull(),
+  clientSecret: varchar('client_secret', { length: 255 }).notNull(),
+  redirectUri: varchar('redirect_uri', { length: 255 }).notNull(),
+  grants: varchar('grants', { length: 255 }).notNull(),
 });
