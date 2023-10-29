@@ -145,3 +145,17 @@ export const clients = pgTable('clients', {
   redirectUri: varchar('redirect_uri', { length: 255 }).notNull(),
   grants: varchar('grants', { length: 255 }).notNull(),
 });
+
+// Add access tokens model
+export const accessTokens = pgTable('access_tokens', {
+  id: serial('id').primaryKey(),
+  accessToken: varchar('access_token', { length: 255 }).notNull(),
+  accessTokenExpiresAt: varchar('access_token_expires_at', {
+    length: 255,
+  }).notNull(),
+  scope: varchar('scope', { length: 255 }).notNull(),
+  clientId: varchar('client_id', { length: 255 }).notNull(),
+  userId: integer('user_id')
+    .notNull()
+    .references(() => users.id),
+});
