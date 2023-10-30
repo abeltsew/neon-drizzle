@@ -159,3 +159,18 @@ export const accessTokens = pgTable('access_tokens', {
     .notNull()
     .references(() => users.id),
 });
+
+// model for return policy
+
+export const returned = pgTable('returns', {
+  id: serial('id').primaryKey(),
+  userId: integer('user_id')
+    .notNull()
+    .references(() => users.id),
+  orderId: integer('order_id')
+    .notNull()
+    .references(() => orders.id),
+  productId: integer('product_id')
+    .notNull()
+    .references(() => products.id),
+});
