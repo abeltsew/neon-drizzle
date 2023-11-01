@@ -174,3 +174,20 @@ export const returned = pgTable('returns', {
     .notNull()
     .references(() => products.id),
 });
+
+//  History model
+export const histories = pgTable('histories', {
+  id: serial('id').primaryKey(),
+  userId: integer('user_id')
+    .notNull()
+    .references(() => users.id),
+  orderId: integer('order_id')
+    .notNull()
+    .references(() => orders.id),
+  productId: integer('product_id')
+    .notNull()
+    .references(() => products.id),
+  quantity: integer('quantity').notNull(),
+  price: integer('price').notNull(),
+  total: integer('total').notNull(),
+});
