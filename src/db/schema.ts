@@ -191,3 +191,14 @@ export const histories = pgTable('histories', {
   price: integer('price').notNull(),
   total: integer('total').notNull(),
 });
+
+//  Add wishlist model
+export const wishlists = pgTable('wishlists', {
+  id: serial('id').primaryKey(),
+  userId: integer('user_id')
+    .notNull()
+    .references(() => users.id),
+  productId: integer('product_id')
+    .notNull()
+    .references(() => products.id),
+});
