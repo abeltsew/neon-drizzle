@@ -202,3 +202,16 @@ export const wishlists = pgTable('wishlists', {
     .notNull()
     .references(() => products.id),
 });
+
+//  Add review model
+export const reviews = pgTable('reviews', {
+  id: serial('id').primaryKey(),
+  userId: integer('user_id')
+    .notNull()
+    .references(() => users.id),
+  productId: integer('product_id')
+    .notNull()
+    .references(() => products.id),
+  rating: integer('rating').notNull(),
+  comment: varchar('comment', { length: 255 }).notNull(),
+});
