@@ -215,3 +215,9 @@ export const reviews = pgTable('reviews', {
   rating: integer('rating').notNull(),
   comment: varchar('comment', { length: 255 }).notNull(),
 });
+
+// Add category model
+export const categories = pgTable('categories', {
+  id: serial('id').primaryKey(),
+  name: varchar('name', { length: 255 }).notNull(),
+});
