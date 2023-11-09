@@ -221,3 +221,12 @@ export const categories = pgTable('categories', {
   id: serial('id').primaryKey(),
   name: varchar('name', { length: 255 }).notNull(),
 });
+
+// Add subcategory model
+export const subcategories = pgTable('subcategories', {
+  id: serial('id').primaryKey(),
+  name: varchar('name', { length: 255 }).notNull(),
+  categoryId: integer('category_id')
+    .notNull()
+    .references(() => categories.id),
+});
